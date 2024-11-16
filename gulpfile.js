@@ -10,7 +10,7 @@ const postcss = require("gulp-postcss");
 
 // Ссылка на вашу папку на локальном сервере
 const dist = "./dist/";
-const prod = "./build/";
+const prod = "./doc/";
 
 gulp.task("copy-html", () => {
     return gulp.src("./src/*.html")
@@ -70,7 +70,7 @@ gulp.task("watch", () => {
 		notify: true
     });
     
-    gulp.watch("./src/index.html", gulp.parallel("copy-html"));
+    gulp.watch("./src/*.html", gulp.parallel("copy-html"));
     gulp.watch("./src/assets/**/*.*", gulp.parallel("copy-assets"));
     gulp.watch("./src/scss/**/*.scss", gulp.parallel("build-sass"));
     gulp.watch("./src/js/**/*.js", gulp.parallel("build-js"));
