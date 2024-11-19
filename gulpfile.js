@@ -58,9 +58,11 @@ gulp.task("build-sass", () => {
 });
 
 gulp.task("copy-assets", () => {
-    return gulp.src("./src/assets/**/*.*")
-                .pipe(gulp.dest(dist + "/assets"))
-                .on("end", browsersync.reload);
+    return gulp
+			// .src("./src/assets/**/*.*")
+			.src("./src/assets/**/*.*", { encoding: false })
+			.pipe(gulp.dest(dist + "/assets"))
+			.on("end", browsersync.reload);
 });
 
 gulp.task("watch", () => {
